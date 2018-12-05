@@ -13,8 +13,10 @@ module.exports = async function (config) {
   MetricModel.belongsTo(AgentModel)
 
   await sequelize.authenticate()
-
-  // sequelize.sync()
+  // Lo que se hace con el setup es sincronizar con la bases de datos , si existe borrar y crear otra nueva.
+  if (config.setup) {
+    await sequelize.sync({ force: true })
+  }
 
   const Agent = {}
   const Metric = {}
