@@ -51,5 +51,5 @@ test.serial('Setup', t => {
 test.serial('Agent#findById', async t => {
   let agent = await db.Agent.findById(id)
 
-  t.deepEqual(agent, agentFixtures.ById(id), 'Should be the same')
+  t.deepEqual(agent, agentFixtures.byId(id), 'Should be the same')
 })
